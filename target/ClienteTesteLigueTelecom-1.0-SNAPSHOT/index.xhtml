@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" type="text/css" href="/ClienteTesteLigueTelecom/faces/jsfcrud.css" />
+    </h:head>
+    <h:body>
+        <center>
+            <h:form id="formulario"> oioi
+                <p:messages autoUpdate="true"/>
+                <p:dataTable id="tabelaClientes" value="#{newJSFManagedBean.clientes}" emptyMessage="Nao ha registros." 
+                                                     var="cli" paginator="true" rows="3" >
+                    <p:column headerText="Id" filterBy="#{cli.id}" sortBy="#{cli.id}">
+                        <h:outputText value="#{cli.id}"/>
+                    </p:column>
+                    <p:column headerText="Name" filterBy="#{cli.nome}" sortBy="#{cli.nome}">
+                        <h:outputText value="#{cli.nome}"/>
+                    </p:column>
+                    <p:column headerText="E-mail">
+                        <h:outputText value="#{cli.email}"/>
+                    </p:column>
+                    <p:column headerText="RG">
+                        <h:outputText value="#{cli.rg}"/>
+                    </p:column>
+                    <p:column headerText="CPF">
+                        <h:outputText value="#{cli.cpf}"/>
+                    </p:column>
+                    <p:column>
+                        <p:commandButton id="buttonDelete" value="REMOVER" update="tabelaClientes" action="#{newJSFManagedBean.delete(cli)}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </center>      
+    </h:body>
+
+</html>
